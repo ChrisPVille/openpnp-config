@@ -83,7 +83,7 @@
    <package version="1.1" id="PLCC-4">
       <footprint units="Millimeters" body-width="0.0" body-height="0.0"/>
       <compatible-nozzle-tip-ids class="java.util.ArrayList">
-         <string>NT1</string>
+         <string>TIP1571600888177</string>
       </compatible-nozzle-tip-ids>
    </package>
 </openpnp-packages>
