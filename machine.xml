@@ -14,7 +14,7 @@
                   <head-offsets units="Millimeters" x="39.82188695028697" y="-9.170555236564184" z="0.0" rotation="360.0"/>
                   <safe-z value="24.0" units="Millimeters"/>
                </nozzle>
-               <nozzle class="org.openpnp.machine.reference.ReferenceNozzle" id="NOZ1570407578155" name="N2" pick-dwell-milliseconds="100" place-dwell-milliseconds="100" current-nozzle-tip-id="TIP1571600646776" changer-enabled="false" limit-rotation="false">
+               <nozzle class="org.openpnp.machine.reference.ReferenceNozzle" id="N2" name="N2" pick-dwell-milliseconds="100" place-dwell-milliseconds="100" current-nozzle-tip-id="TIP1571600646776" changer-enabled="false" limit-rotation="false">
                   <compatible-nozzle-tip-ids class="java.util.ArrayList">
                      <string>TIP1570986778670</string>
                      <string>TIP1571600888177</string>
@@ -422,7 +422,7 @@
                   <cv-stage class="org.openpnp.vision.pipeline.stages.Threshold" name="highlights" enabled="true" threshold="80" auto="false" invert="false"/>
                   <cv-stage class="org.openpnp.vision.pipeline.stages.ImageRecall" name="recall1" enabled="true" image-stage-name="gray"/>
                   <cv-stage class="org.openpnp.vision.pipeline.stages.Threshold" name="lowlights" enabled="true" threshold="40" auto="false" invert="true"/>
-                  <cv-stage class="org.openpnp.vision.pipeline.stages.Add" name="combined" enabled="true" first-stage-name="highlights" second-stage-name="lowlights"/>
+                  <cv-stage class="org.openpnp.vision.pipeline.stages.Add" name="combined" enabled="true" first-stage-name="highlights" second-stage-name="lowlights" first-scalar="1.0" second-scalar="1.0"/>
                   <cv-stage class="org.openpnp.vision.pipeline.stages.BlurMedian" name="merged" enabled="true" kernel-size="3"/>
                   <cv-stage class="org.openpnp.vision.pipeline.stages.FindContours" name="contours" enabled="true" retrieval-mode="External" approximation-method="Simple"/>
                   <cv-stage class="org.openpnp.vision.pipeline.stages.FilterContours" name="filtered_contours" enabled="true" contours-stage-name="contours" min-area="200.0" max-area="1500.0"/>
@@ -446,7 +446,7 @@
                   <cv-stage class="org.openpnp.vision.pipeline.stages.Threshold" name="highlights" enabled="true" threshold="100" auto="false" invert="false"/>
                   <cv-stage class="org.openpnp.vision.pipeline.stages.ImageRecall" name="recall1" enabled="true" image-stage-name="gray"/>
                   <cv-stage class="org.openpnp.vision.pipeline.stages.Threshold" name="lowlights" enabled="true" threshold="40" auto="false" invert="true"/>
-                  <cv-stage class="org.openpnp.vision.pipeline.stages.Add" name="combined" enabled="true" first-stage-name="highlights" second-stage-name="lowlights"/>
+                  <cv-stage class="org.openpnp.vision.pipeline.stages.Add" name="combined" enabled="true" first-stage-name="highlights" second-stage-name="lowlights" first-scalar="1.0" second-scalar="1.0"/>
                   <cv-stage class="org.openpnp.vision.pipeline.stages.BlurMedian" name="merged" enabled="true" kernel-size="3"/>
                   <cv-stage class="org.openpnp.vision.pipeline.stages.FindContours" name="contours" enabled="true" retrieval-mode="External" approximation-method="Simple"/>
                   <cv-stage class="org.openpnp.vision.pipeline.stages.FilterContours" name="filtered_contours" enabled="true" contours-stage-name="contours" min-area="200.0" max-area="1500.0"/>
@@ -488,19 +488,7 @@
          </camera>
       </cameras>
       <actuators>
-         <actuator class="org.openpnp.machine.reference.ReferenceActuator" id="ACT1570997458486" name="N1 Vac" index="1">
-            <head-offsets units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="0.0"/>
-            <safe-z value="0.0" units="Millimeters"/>
-         </actuator>
-         <actuator class="org.openpnp.machine.reference.ReferenceActuator" id="ACT1570997494055" name="N2 Vac" index="2">
-            <head-offsets units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="0.0"/>
-            <safe-z value="0.0" units="Millimeters"/>
-         </actuator>
          <actuator class="org.openpnp.machine.reference.ReferenceActuator" id="ACT1571512170515" name="LED Up" index="3">
-            <head-offsets units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="0.0"/>
-            <safe-z value="0.0" units="Millimeters"/>
-         </actuator>
-         <actuator class="org.openpnp.machine.reference.ReferenceActuator" id="ACT1571580185359" name="Backlash" index="4">
             <head-offsets units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="0.0"/>
             <safe-z value="0.0" units="Millimeters"/>
          </actuator>
@@ -518,7 +506,7 @@
                   <cv-stage class="org.openpnp.vision.pipeline.stages.BlurGaussian" name="10" enabled="true" kernel-size="9"/>
                   <cv-stage class="org.openpnp.vision.pipeline.stages.MaskCircle" name="4" enabled="true" diameter="300"/>
                   <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="1" enabled="true" conversion="Bgr2HsvFull"/>
-                  <cv-stage class="org.openpnp.vision.pipeline.stages.MaskHsv" name="2" enabled="true" hue-min="60" hue-max="130" saturation-min="0" saturation-max="255" value-min="0" value-max="255" invert="false"/>
+                  <cv-stage class="org.openpnp.vision.pipeline.stages.MaskHsv" name="2" enabled="true" auto="false" fraction-to-mask="0.0" hue-min="60" hue-max="130" saturation-min="0" saturation-max="255" value-min="0" value-max="255" invert="false" binary-mask="false"/>
                   <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="3" enabled="true" conversion="Hsv2BgrFull"/>
                   <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="6" enabled="true" conversion="Bgr2Gray"/>
                   <cv-stage class="org.openpnp.vision.pipeline.stages.Threshold" name="12" enabled="true" threshold="100" auto="false" invert="false"/>
@@ -546,7 +534,7 @@
                            <cv-stage class="org.openpnp.vision.pipeline.stages.BlurGaussian" name="10" enabled="true" kernel-size="9"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.MaskCircle" name="4" enabled="true" diameter="525"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="1" enabled="true" conversion="Bgr2HsvFull"/>
-                           <cv-stage class="org.openpnp.vision.pipeline.stages.MaskHsv" name="2" enabled="true" hue-min="200" hue-max="255" saturation-min="0" saturation-max="255" value-min="0" value-max="255" invert="false"/>
+                           <cv-stage class="org.openpnp.vision.pipeline.stages.MaskHsv" name="2" enabled="true" auto="false" fraction-to-mask="0.0" hue-min="200" hue-max="255" saturation-min="0" saturation-max="255" value-min="0" value-max="255" invert="false" binary-mask="false"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="3" enabled="true" conversion="Hsv2BgrFull"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="6" enabled="true" conversion="Bgr2Gray"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.Threshold" name="12" enabled="true" threshold="100" auto="false" invert="false"/>
@@ -574,7 +562,7 @@
                            <cv-stage class="org.openpnp.vision.pipeline.stages.BlurGaussian" name="10" enabled="true" kernel-size="9"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.MaskCircle" name="4" enabled="true" diameter="525"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="1" enabled="true" conversion="Bgr2HsvFull"/>
-                           <cv-stage class="org.openpnp.vision.pipeline.stages.MaskHsv" name="2" enabled="true" hue-min="200" hue-max="255" saturation-min="0" saturation-max="255" value-min="0" value-max="255" invert="false"/>
+                           <cv-stage class="org.openpnp.vision.pipeline.stages.MaskHsv" name="2" enabled="true" auto="false" fraction-to-mask="0.0" hue-min="200" hue-max="255" saturation-min="0" saturation-max="255" value-min="0" value-max="255" invert="false" binary-mask="false"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="3" enabled="true" conversion="Hsv2BgrFull"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="6" enabled="true" conversion="Bgr2Gray"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.Threshold" name="12" enabled="true" threshold="100" auto="false" invert="false"/>
@@ -602,7 +590,7 @@
                            <cv-stage class="org.openpnp.vision.pipeline.stages.BlurGaussian" name="10" enabled="true" kernel-size="9"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.MaskCircle" name="4" enabled="true" diameter="300"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="1" enabled="true" conversion="Bgr2HsvFull"/>
-                           <cv-stage class="org.openpnp.vision.pipeline.stages.MaskHsv" name="2" enabled="true" hue-min="60" hue-max="130" saturation-min="0" saturation-max="255" value-min="0" value-max="255" invert="false"/>
+                           <cv-stage class="org.openpnp.vision.pipeline.stages.MaskHsv" name="2" enabled="true" auto="false" fraction-to-mask="0.0" hue-min="60" hue-max="130" saturation-min="0" saturation-max="255" value-min="0" value-max="255" invert="false" binary-mask="false"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="3" enabled="true" conversion="Hsv2BgrFull"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="6" enabled="true" conversion="Bgr2Gray"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.Threshold" name="12" enabled="true" threshold="100" auto="false" invert="false"/>
@@ -630,7 +618,7 @@
                            <cv-stage class="org.openpnp.vision.pipeline.stages.BlurGaussian" name="10" enabled="true" kernel-size="9"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.MaskCircle" name="4" enabled="true" diameter="300"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="1" enabled="true" conversion="Bgr2HsvFull"/>
-                           <cv-stage class="org.openpnp.vision.pipeline.stages.MaskHsv" name="2" enabled="true" hue-min="60" hue-max="130" saturation-min="0" saturation-max="255" value-min="0" value-max="255" invert="false"/>
+                           <cv-stage class="org.openpnp.vision.pipeline.stages.MaskHsv" name="2" enabled="true" auto="false" fraction-to-mask="0.0" hue-min="60" hue-max="130" saturation-min="0" saturation-max="255" value-min="0" value-max="255" invert="false" binary-mask="false"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="3" enabled="true" conversion="Hsv2BgrFull"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="6" enabled="true" conversion="Bgr2Gray"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.Threshold" name="12" enabled="true" threshold="100" auto="false" invert="false"/>
@@ -658,7 +646,7 @@
                            <cv-stage class="org.openpnp.vision.pipeline.stages.BlurGaussian" name="10" enabled="true" kernel-size="9"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.MaskCircle" name="4" enabled="true" diameter="525"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="1" enabled="true" conversion="Bgr2HsvFull"/>
-                           <cv-stage class="org.openpnp.vision.pipeline.stages.MaskHsv" name="2" enabled="true" hue-min="200" hue-max="255" saturation-min="0" saturation-max="255" value-min="0" value-max="255" invert="false"/>
+                           <cv-stage class="org.openpnp.vision.pipeline.stages.MaskHsv" name="2" enabled="true" auto="false" fraction-to-mask="0.0" hue-min="200" hue-max="255" saturation-min="0" saturation-max="255" value-min="0" value-max="255" invert="false" binary-mask="false"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="3" enabled="true" conversion="Hsv2BgrFull"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="6" enabled="true" conversion="Bgr2Gray"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.Threshold" name="12" enabled="true" threshold="100" auto="false" invert="false"/>
@@ -686,7 +674,7 @@
                            <cv-stage class="org.openpnp.vision.pipeline.stages.BlurGaussian" name="10" enabled="true" kernel-size="9"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.MaskCircle" name="4" enabled="true" diameter="525"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="1" enabled="true" conversion="Bgr2HsvFull"/>
-                           <cv-stage class="org.openpnp.vision.pipeline.stages.MaskHsv" name="2" enabled="true" hue-min="200" hue-max="255" saturation-min="0" saturation-max="255" value-min="0" value-max="255" invert="false"/>
+                           <cv-stage class="org.openpnp.vision.pipeline.stages.MaskHsv" name="2" enabled="true" auto="false" fraction-to-mask="0.0" hue-min="200" hue-max="255" saturation-min="0" saturation-max="255" value-min="0" value-max="255" invert="false" binary-mask="false"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="3" enabled="true" conversion="Hsv2BgrFull"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="6" enabled="true" conversion="Bgr2Gray"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.Threshold" name="12" enabled="true" threshold="100" auto="false" invert="false"/>
@@ -714,7 +702,7 @@
                            <cv-stage class="org.openpnp.vision.pipeline.stages.BlurGaussian" name="10" enabled="true" kernel-size="9"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.MaskCircle" name="4" enabled="true" diameter="300"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="1" enabled="true" conversion="Bgr2HsvFull"/>
-                           <cv-stage class="org.openpnp.vision.pipeline.stages.MaskHsv" name="2" enabled="true" hue-min="60" hue-max="130" saturation-min="0" saturation-max="255" value-min="0" value-max="255" invert="false"/>
+                           <cv-stage class="org.openpnp.vision.pipeline.stages.MaskHsv" name="2" enabled="true" auto="false" fraction-to-mask="0.0" hue-min="60" hue-max="130" saturation-min="0" saturation-max="255" value-min="0" value-max="255" invert="false" binary-mask="false"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="3" enabled="true" conversion="Hsv2BgrFull"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="6" enabled="true" conversion="Bgr2Gray"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.Threshold" name="12" enabled="true" threshold="100" auto="false" invert="false"/>
@@ -742,7 +730,7 @@
                            <cv-stage class="org.openpnp.vision.pipeline.stages.BlurGaussian" name="10" enabled="true" kernel-size="9"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.MaskCircle" name="4" enabled="true" diameter="300"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="1" enabled="true" conversion="Bgr2HsvFull"/>
-                           <cv-stage class="org.openpnp.vision.pipeline.stages.MaskHsv" name="2" enabled="true" hue-min="60" hue-max="130" saturation-min="0" saturation-max="255" value-min="0" value-max="255" invert="false"/>
+                           <cv-stage class="org.openpnp.vision.pipeline.stages.MaskHsv" name="2" enabled="true" auto="false" fraction-to-mask="0.0" hue-min="60" hue-max="130" saturation-min="0" saturation-max="255" value-min="0" value-max="255" invert="false" binary-mask="false"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="3" enabled="true" conversion="Hsv2BgrFull"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="6" enabled="true" conversion="Bgr2Gray"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.Threshold" name="12" enabled="true" threshold="100" auto="false" invert="false"/>
@@ -770,7 +758,7 @@
                            <cv-stage class="org.openpnp.vision.pipeline.stages.BlurGaussian" name="10" enabled="true" kernel-size="9"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.MaskCircle" name="4" enabled="true" diameter="300"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="1" enabled="true" conversion="Bgr2HsvFull"/>
-                           <cv-stage class="org.openpnp.vision.pipeline.stages.MaskHsv" name="2" enabled="true" hue-min="60" hue-max="130" saturation-min="0" saturation-max="255" value-min="0" value-max="255" invert="false"/>
+                           <cv-stage class="org.openpnp.vision.pipeline.stages.MaskHsv" name="2" enabled="true" auto="false" fraction-to-mask="0.0" hue-min="60" hue-max="130" saturation-min="0" saturation-max="255" value-min="0" value-max="255" invert="false" binary-mask="false"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="3" enabled="true" conversion="Hsv2BgrFull"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="6" enabled="true" conversion="Bgr2Gray"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.Threshold" name="12" enabled="true" threshold="100" auto="false" invert="false"/>
@@ -798,7 +786,7 @@
                            <cv-stage class="org.openpnp.vision.pipeline.stages.BlurGaussian" name="10" enabled="true" kernel-size="9"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.MaskCircle" name="4" enabled="true" diameter="300"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="1" enabled="true" conversion="Bgr2HsvFull"/>
-                           <cv-stage class="org.openpnp.vision.pipeline.stages.MaskHsv" name="2" enabled="true" hue-min="65" hue-max="130" saturation-min="0" saturation-max="255" value-min="0" value-max="255" invert="false"/>
+                           <cv-stage class="org.openpnp.vision.pipeline.stages.MaskHsv" name="2" enabled="true" auto="false" fraction-to-mask="0.0" hue-min="65" hue-max="130" saturation-min="0" saturation-max="255" value-min="0" value-max="255" invert="false" binary-mask="false"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="3" enabled="true" conversion="Hsv2BgrFull"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="6" enabled="true" conversion="Bgr2Gray"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.Threshold" name="12" enabled="true" threshold="40" auto="false" invert="false"/>
@@ -826,7 +814,7 @@
                            <cv-stage class="org.openpnp.vision.pipeline.stages.BlurGaussian" name="10" enabled="true" kernel-size="9"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.MaskCircle" name="4" enabled="true" diameter="300"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="1" enabled="true" conversion="Bgr2HsvFull"/>
-                           <cv-stage class="org.openpnp.vision.pipeline.stages.MaskHsv" name="2" enabled="true" hue-min="30" hue-max="100" saturation-min="100" saturation-max="255" value-min="0" value-max="255" invert="false"/>
+                           <cv-stage class="org.openpnp.vision.pipeline.stages.MaskHsv" name="2" enabled="true" auto="false" fraction-to-mask="0.0" hue-min="30" hue-max="100" saturation-min="100" saturation-max="255" value-min="0" value-max="255" invert="false" binary-mask="false"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="3" enabled="true" conversion="Hsv2BgrFull"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="6" enabled="true" conversion="Bgr2Gray"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.Threshold" name="12" enabled="true" threshold="100" auto="false" invert="false"/>
@@ -854,7 +842,7 @@
                            <cv-stage class="org.openpnp.vision.pipeline.stages.BlurGaussian" name="10" enabled="true" kernel-size="9"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.MaskCircle" name="4" enabled="true" diameter="300"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="1" enabled="true" conversion="Bgr2HsvFull"/>
-                           <cv-stage class="org.openpnp.vision.pipeline.stages.MaskHsv" name="2" enabled="true" hue-min="60" hue-max="130" saturation-min="0" saturation-max="255" value-min="0" value-max="255" invert="false"/>
+                           <cv-stage class="org.openpnp.vision.pipeline.stages.MaskHsv" name="2" enabled="true" auto="false" fraction-to-mask="0.0" hue-min="60" hue-max="130" saturation-min="0" saturation-max="255" value-min="0" value-max="255" invert="false" binary-mask="false"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="3" enabled="true" conversion="Hsv2BgrFull"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="6" enabled="true" conversion="Bgr2Gray"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.Threshold" name="12" enabled="true" threshold="100" auto="false" invert="false"/>
@@ -882,7 +870,7 @@
                            <cv-stage class="org.openpnp.vision.pipeline.stages.BlurGaussian" name="10" enabled="true" kernel-size="9"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.MaskCircle" name="4" enabled="true" diameter="250"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="1" enabled="true" conversion="Bgr2HsvFull"/>
-                           <cv-stage class="org.openpnp.vision.pipeline.stages.MaskHsv" name="2" enabled="true" hue-min="70" hue-max="130" saturation-min="0" saturation-max="255" value-min="0" value-max="255" invert="false"/>
+                           <cv-stage class="org.openpnp.vision.pipeline.stages.MaskHsv" name="2" enabled="true" auto="false" fraction-to-mask="0.0" hue-min="70" hue-max="130" saturation-min="0" saturation-max="255" value-min="0" value-max="255" invert="false" binary-mask="false"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="3" enabled="true" conversion="Hsv2BgrFull"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="6" enabled="true" conversion="Bgr2Gray"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.Threshold" name="12" enabled="true" threshold="100" auto="false" invert="false"/>
@@ -910,7 +898,7 @@
                            <cv-stage class="org.openpnp.vision.pipeline.stages.BlurGaussian" name="10" enabled="true" kernel-size="9"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.MaskCircle" name="4" enabled="true" diameter="300"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="1" enabled="true" conversion="Bgr2HsvFull"/>
-                           <cv-stage class="org.openpnp.vision.pipeline.stages.MaskHsv" name="2" enabled="true" hue-min="60" hue-max="130" saturation-min="0" saturation-max="255" value-min="0" value-max="255" invert="false"/>
+                           <cv-stage class="org.openpnp.vision.pipeline.stages.MaskHsv" name="2" enabled="true" auto="false" fraction-to-mask="0.0" hue-min="60" hue-max="130" saturation-min="0" saturation-max="255" value-min="0" value-max="255" invert="false" binary-mask="false"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="3" enabled="true" conversion="Hsv2BgrFull"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="6" enabled="true" conversion="Bgr2Gray"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.Threshold" name="12" enabled="true" threshold="100" auto="false" invert="false"/>
@@ -938,7 +926,7 @@
                            <cv-stage class="org.openpnp.vision.pipeline.stages.BlurGaussian" name="10" enabled="true" kernel-size="9"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.MaskCircle" name="4" enabled="true" diameter="300"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="1" enabled="true" conversion="Bgr2HsvFull"/>
-                           <cv-stage class="org.openpnp.vision.pipeline.stages.MaskHsv" name="2" enabled="true" hue-min="60" hue-max="130" saturation-min="0" saturation-max="255" value-min="0" value-max="255" invert="false"/>
+                           <cv-stage class="org.openpnp.vision.pipeline.stages.MaskHsv" name="2" enabled="true" auto="false" fraction-to-mask="0.0" hue-min="60" hue-max="130" saturation-min="0" saturation-max="255" value-min="0" value-max="255" invert="false" binary-mask="false"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="3" enabled="true" conversion="Hsv2BgrFull"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="6" enabled="true" conversion="Bgr2Gray"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.Threshold" name="12" enabled="true" threshold="100" auto="false" invert="false"/>
@@ -966,7 +954,7 @@
                            <cv-stage class="org.openpnp.vision.pipeline.stages.BlurGaussian" name="10" enabled="true" kernel-size="9"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.MaskCircle" name="4" enabled="true" diameter="300"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="1" enabled="true" conversion="Bgr2HsvFull"/>
-                           <cv-stage class="org.openpnp.vision.pipeline.stages.MaskHsv" name="2" enabled="true" hue-min="60" hue-max="130" saturation-min="0" saturation-max="255" value-min="0" value-max="255" invert="false"/>
+                           <cv-stage class="org.openpnp.vision.pipeline.stages.MaskHsv" name="2" enabled="true" auto="false" fraction-to-mask="0.0" hue-min="60" hue-max="130" saturation-min="0" saturation-max="255" value-min="0" value-max="255" invert="false" binary-mask="false"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="3" enabled="true" conversion="Hsv2BgrFull"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="6" enabled="true" conversion="Bgr2Gray"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.Threshold" name="12" enabled="true" threshold="100" auto="false" invert="false"/>
@@ -994,7 +982,7 @@
                            <cv-stage class="org.openpnp.vision.pipeline.stages.BlurGaussian" name="10" enabled="true" kernel-size="9"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.MaskCircle" name="4" enabled="true" diameter="300"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="1" enabled="true" conversion="Bgr2HsvFull"/>
-                           <cv-stage class="org.openpnp.vision.pipeline.stages.MaskHsv" name="2" enabled="true" hue-min="60" hue-max="130" saturation-min="0" saturation-max="255" value-min="0" value-max="255" invert="false"/>
+                           <cv-stage class="org.openpnp.vision.pipeline.stages.MaskHsv" name="2" enabled="true" auto="false" fraction-to-mask="0.0" hue-min="60" hue-max="130" saturation-min="0" saturation-max="255" value-min="0" value-max="255" invert="false" binary-mask="false"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="3" enabled="true" conversion="Hsv2BgrFull"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="6" enabled="true" conversion="Bgr2Gray"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.Threshold" name="12" enabled="true" threshold="100" auto="false" invert="false"/>
@@ -1022,7 +1010,7 @@
                            <cv-stage class="org.openpnp.vision.pipeline.stages.BlurGaussian" name="10" enabled="true" kernel-size="9"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.MaskCircle" name="4" enabled="true" diameter="300"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="1" enabled="true" conversion="Bgr2HsvFull"/>
-                           <cv-stage class="org.openpnp.vision.pipeline.stages.MaskHsv" name="2" enabled="true" hue-min="70" hue-max="130" saturation-min="50" saturation-max="255" value-min="0" value-max="255" invert="false"/>
+                           <cv-stage class="org.openpnp.vision.pipeline.stages.MaskHsv" name="2" enabled="true" auto="false" fraction-to-mask="0.0" hue-min="70" hue-max="130" saturation-min="50" saturation-max="255" value-min="0" value-max="255" invert="false" binary-mask="false"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="3" enabled="true" conversion="Hsv2BgrFull"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="6" enabled="true" conversion="Bgr2Gray"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.Threshold" name="12" enabled="true" threshold="100" auto="false" invert="false"/>
@@ -1050,7 +1038,7 @@
                            <cv-stage class="org.openpnp.vision.pipeline.stages.BlurGaussian" name="10" enabled="true" kernel-size="9"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.MaskCircle" name="4" enabled="true" diameter="280"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="1" enabled="true" conversion="Bgr2HsvFull"/>
-                           <cv-stage class="org.openpnp.vision.pipeline.stages.MaskHsv" name="2" enabled="true" hue-min="70" hue-max="130" saturation-min="100" saturation-max="255" value-min="0" value-max="255" invert="false"/>
+                           <cv-stage class="org.openpnp.vision.pipeline.stages.MaskHsv" name="2" enabled="true" auto="false" fraction-to-mask="0.0" hue-min="70" hue-max="130" saturation-min="100" saturation-max="255" value-min="0" value-max="255" invert="false" binary-mask="false"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="3" enabled="true" conversion="Hsv2BgrFull"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="6" enabled="true" conversion="Bgr2Gray"/>
                            <cv-stage class="org.openpnp.vision.pipeline.stages.Threshold" name="12" enabled="true" threshold="100" auto="false" invert="false"/>
@@ -1189,7 +1177,7 @@
             <changer-mid-location-2 units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="0.0"/>
             <changer-mid-2-to-end-speed>1.0</changer-mid-2-to-end-speed>
             <changer-end-location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="0.0"/>
-            <calibration angle-subdivisions="6" allow-misdetections="0" angle-start="-180.0" angle-stop="180.0" excenter-ratio="0.25" enabled="true" runout-compensation-algorithm="ModelCameraOffset" version="2.0" recalibration-trigger="MachineHome" offset-threshold="0.0">
+            <calibration angle-subdivisions="6" allow-misdetections="0" angle-start="-180.0" angle-stop="180.0" excenter-ratio="0.25" enabled="false" runout-compensation-algorithm="ModelCameraOffset" version="2.0" recalibration-trigger="MachineHome" offset-threshold="0.0">
                <pipeline>
                   <stages>
                      <cv-stage class="org.openpnp.vision.pipeline.stages.ImageCapture" name="0" enabled="true" settle-first="true"/>
@@ -1208,7 +1196,7 @@
                </pipeline>
                <runout-compensation-lookup class="java.util.HashMap">
                   <entry>
-                     <string>NOZ1570407578155</string>
+                     <string>N2</string>
                      <runout-compensation class="org.openpnp.machine.reference.ReferenceNozzleTipCalibration$ModelBasedRunoutCameraOffsetCompensation" center-x="0.24136651069890372" center-y="0.14528837990147617" radius="0.16958351152182755" phase-shift="-73.19910413997034" units="Millimeters"/>
                   </entry>
                </runout-compensation-lookup>
@@ -1228,7 +1216,7 @@
             <changer-mid-location-2 units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="0.0"/>
             <changer-mid-2-to-end-speed>1.0</changer-mid-2-to-end-speed>
             <changer-end-location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="0.0"/>
-            <calibration angle-subdivisions="6" allow-misdetections="1" angle-start="-180.0" angle-stop="180.0" excenter-ratio="0.25" enabled="true" runout-compensation-algorithm="ModelCameraOffset" version="2.0" recalibration-trigger="MachineHome" offset-threshold="0.0">
+            <calibration angle-subdivisions="6" allow-misdetections="1" angle-start="-180.0" angle-stop="180.0" excenter-ratio="0.25" enabled="false" runout-compensation-algorithm="ModelCameraOffset" version="2.0" recalibration-trigger="MachineHome" offset-threshold="0.0">
                <pipeline>
                   <stages>
                      <cv-stage class="org.openpnp.vision.pipeline.stages.ImageCapture" name="0" enabled="true" settle-first="true"/>
@@ -1245,12 +1233,7 @@
                      <cv-stage class="org.openpnp.vision.pipeline.stages.ImageWriteDebug" name="7" enabled="false" prefix="runoutCalibration" suffix=".png"/>
                   </stages>
                </pipeline>
-               <runout-compensation-lookup class="java.util.HashMap">
-                  <entry>
-                     <string>N1</string>
-                     <runout-compensation class="org.openpnp.machine.reference.ReferenceNozzleTipCalibration$ModelBasedRunoutCameraOffsetCompensation" center-x="0.09230901694617674" center-y="0.2298845752529096" radius="0.06485384517186067" phase-shift="35.61271699145444" units="Millimeters"/>
-                  </entry>
-               </runout-compensation-lookup>
+               <runout-compensation-lookup class="java.util.HashMap"/>
                <offset-threshold-length value="20.0" units="Millimeters"/>
                <calibration-Z-offset value="0.0" units="Millimeters"/>
             </calibration>
@@ -1260,9 +1243,106 @@
             <vacuum-level-part-off-high>0.0</vacuum-level-part-off-high>
          </nozzle-tip>
       </nozzle-tips>
-      <driver class="org.openpnp.machine.openbuilds.OpenBuildsDriver" communications="serial" connection-keep-alive="true" feed-rate-mm-per-minute="100000.0" z-cam-radius="24.0" z-offset="23.5" backlash-x="2.5" backlash-y="2.5" backlash-speed="1000.0" backlash="true" z-rot-error="-0.93">
-         <serial line-ending-type="LF" port-name="/dev/ttyACM0" baud="115200" flow-control="Off" data-bits="Eight" stop-bits="One" parity="None" set-dtr="false" set-rts="false" name="SerialPortCommunications"/>
+      <driver class="org.openpnp.machine.reference.driver.GcodeDriver" communications="serial" connection-keep-alive="true" units="Millimeters" max-feed-rate="100000" backlash-offset-x="-1.0" backlash-offset-y="-1.0" non-squareness-factor="0.0" backlash-feed-rate-factor="0.01" timeout-milliseconds="5000" connect-wait-time-milliseconds="500" visual-homing-enabled="false" backslash-escaped-characters-enabled="false" name="GcodeDriver">
+         <serial line-ending-type="LF" port-name="ttyACM0" baud="115200" flow-control="Off" data-bits="Eight" stop-bits="One" parity="None" set-dtr="false" set-rts="false" name="SerialPortCommunications"/>
          <tcp line-ending-type="LF" ip-address="127.0.0.1" port="23" name="TcpCommunications"/>
+         <homing-fiducial-location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="0.0"/>
+         <command type="COMMAND_CONFIRM_REGEX">
+            <text><![CDATA[^ok.*]]></text>
+         </command>
+         <command type="CONNECT_COMMAND">
+            <text><![CDATA[M999]]></text>
+            <text><![CDATA[G21 ; Set millimeters mode]]></text>
+            <text><![CDATA[G90 ; Set absolute positioning mode]]></text>
+            <text><![CDATA[M82 ; Set absolute mode for extruder]]></text>
+         </command>
+         <command type="HOME_COMMAND">
+            <text><![CDATA[M999 ; Reset limit switches]]></text>
+            <text><![CDATA[M84 ; Disable steppers]]></text>
+            <text><![CDATA[G4P250 ; Wait 250ms]]></text>
+            <text><![CDATA[G92 Z0 ; Call that Z0]]></text>
+            <text><![CDATA[G0 Z-20.0 ; Rotate a little so we're off the limit]]></text>
+            <text><![CDATA[M84 ; Let it spring back]]></text>
+            <text><![CDATA[G4P250 ; Wait 250ms]]></text>
+            <text><![CDATA[G28 Z0 ; Now home Z on the switch]]></text>
+            <text><![CDATA[G92 Z-9.3 ; Account for rotation error]]></text>
+            <text><![CDATA[G28 X0 Y0]]></text>
+            <text><![CDATA[T1]]></text>
+            <text><![CDATA[G92 E0]]></text>
+            <text><![CDATA[T0]]></text>
+            <text><![CDATA[G92 E0]]></text>
+         </command>
+         <command type="MOVE_TO_COMMAND">
+            <text><![CDATA[G0 {X:X%.4f} {Y:Y%.4f} {Z:Z%.4f} {Rotation:E%.4f} F{FeedRate:%.0f} ; Send standard Gcode move]]></text>
+         </command>
+         <command type="MOVE_TO_COMPLETE_COMMAND">
+            <text><![CDATA[M400 ; Wait for moves to complete before returning]]></text>
+         </command>
+         <command type="POSITION_REPORT_REGEX">
+            <text><![CDATA[^ok MCS: X:(?<x>-?\d+\.\d+) Y:(?<y>-?\d+\.\d+) Z:(?<z>-?\d+\.\d+) A:(?<rotation>-?\d+\.\d+).*]]></text>
+         </command>
+         <command head-mountable-id="ACT1571697258433" type="ACTUATE_BOOLEAN_COMMAND">
+            <text><![CDATA[{True:M804}{False:M805}]]></text>
+         </command>
+         <command head-mountable-id="ACT1571512170515" type="ACTUATE_BOOLEAN_COMMAND">
+            <text><![CDATA[{True:M806}{False:M807}]]></text>
+         </command>
+         <command head-mountable-id="N1" type="PICK_COMMAND">
+            <text><![CDATA[M800]]></text>
+         </command>
+         <command head-mountable-id="N1" type="PLACE_COMMAND">
+            <text><![CDATA[M801]]></text>
+         </command>
+         <command head-mountable-id="N2" type="PICK_COMMAND">
+            <text><![CDATA[M802]]></text>
+         </command>
+         <command head-mountable-id="N2" type="PLACE_COMMAND">
+            <text><![CDATA[M803]]></text>
+         </command>
+         <command type="DISABLE_COMMAND">
+            <text><![CDATA[M84]]></text>
+            <text><![CDATA[M801]]></text>
+            <text><![CDATA[M803]]></text>
+            <text><![CDATA[M805]]></text>
+            <text><![CDATA[M807]]></text>
+         </command>
+         <command type="COMMAND_ERROR_REGEX">
+            <text><![CDATA[^ERROR:]]></text>
+         </command>
+         <sub-drivers class="java.util.ArrayList"/>
+         <axes class="java.util.ArrayList">
+            <axis name="x" type="X" home-coordinate="0.0">
+               <head-mountable-ids class="java.util.HashSet">
+                  <string>*</string>
+               </head-mountable-ids>
+            </axis>
+            <axis name="y" type="Y" home-coordinate="0.0">
+               <head-mountable-ids class="java.util.HashSet">
+                  <string>*</string>
+               </head-mountable-ids>
+            </axis>
+            <axis name="z" type="Z" home-coordinate="0.0">
+               <head-mountable-ids class="java.util.HashSet">
+                  <string>N1</string>
+                  <string>N2</string>
+               </head-mountable-ids>
+               <transform class="org.openpnp.machine.reference.driver.GcodeDriver$CamTransform" cam-radius="24.0" cam-wheel-radius="23.5" cam-wheel-gap="-0.5">
+                  <negated-head-mountable-id>N1</negated-head-mountable-id>
+               </transform>
+            </axis>
+            <axis name="c1" type="Rotation" home-coordinate="0.0">
+               <head-mountable-ids class="java.util.HashSet">
+                  <string>N1</string>
+               </head-mountable-ids>
+               <pre-move-command><![CDATA[T1]]></pre-move-command>
+            </axis>
+            <axis name="c2" type="Rotation" home-coordinate="0.0">
+               <head-mountable-ids class="java.util.HashSet">
+                  <string>N2</string>
+               </head-mountable-ids>
+               <pre-move-command><![CDATA[T2]]></pre-move-command>
+            </axis>
+         </axes>
       </driver>
       <pnp-job-processor class="org.openpnp.machine.reference.ReferencePnpJobProcessor" job-order="PartHeight">
          <planner class="org.openpnp.machine.reference.ReferencePnpJobProcessor$SimplePnpJobPlanner"/>

@@ -6,12 +6,12 @@ default_seek_rate                            100000            # Default rate ( 
 # Arm solution configuration : Cartesian robot. Translates mm positions into stepper positions
 alpha_steps_per_mm                           106.8712          # Steps per mm for alpha stepper
 beta_steps_per_mm                            26.6929          # Steps per mm for beta stepper 59.9251 mm per rev
-gamma_steps_per_mm                           166.0           # Steps per mm for gamma stepper
+gamma_steps_per_mm                           16.60           # Steps per mm for gamma stepper
 
 # Planner module configuration : Look-ahead and acceleration configuration
 planner_queue_size                           32               # DO NOT CHANGE THIS UNLESS YOU KNOW EXACTLY WHAT YOU ARE DOING
 acceleration                                 10000
-z_acceleration                               99999             # Acceleration for Z only moves in mm/s^2, 0 uses acceleration which is the default. DO NOT SET ON A DELTA
+z_acceleration                               10000             # Acceleration for Z only moves in mm/s^2, 0 uses acceleration which is the default. DO NOT SET ON A DELTA
 acceleration_ticks_per_second                1000             # Number of times per second the speed is updated
 junction_deviation                           0.025                # Similar to the old "max_jerk", in millimeters,
                                                               # see https://github.com/grbl/grbl/blob/master/planner.c
@@ -27,7 +27,7 @@ base_stepping_frequency                      100000           # Base frequency f
 # Cartesian axis speed limits
 x_axis_max_speed                             100000            # mm/min
 y_axis_max_speed                             60000            # mm/min
-z_axis_max_speed                             50000            # mm/min
+z_axis_max_speed                             200000            # mm/min
 
 # Stepper module pins ( ports, and pin numbers, appending "!" to the number will invert a pin )
 alpha_step_pin                               2.0              # Pin for alpha stepper step signal
@@ -48,8 +48,8 @@ gamma_step_pin                               2.2              # Pin for gamma st
 gamma_dir_pin                                0.20!            # Pin for gamma stepper direction
 gamma_en_pin                                 0.19             # Pin for gamma enable
 gamma_current                                1.5             # Z stepper motor current
-gamma_acceleration                           2000             # Acceleration in mm/second/second.
-gamma_max_rate                               50000.0          # mm/min
+gamma_acceleration                           20000             # Acceleration in mm/second/second.
+gamma_max_rate                               200000.0          # mm/min
 
 extruder.hotend.enable                       true             # Whether to activate the extruder module at all. All configuration is ignored if false
 extruder.hotend.steps_per_mm                 17.6666           # Steps per mm for extruder stepper
