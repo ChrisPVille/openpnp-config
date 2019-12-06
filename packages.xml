@@ -5,42 +5,6 @@
       </footprint>
       <compatible-nozzle-tip-ids class="java.util.ArrayList"/>
    </package>
-   <package version="1.1" id="R0805" description="">
-      <footprint units="Millimeters" body-width="2.0" body-height="1.25">
-         <pad name="1" x="-0.825" y="0.0" width="0.35" height="1.25" rotation="0.0" roundness="0.0"/>
-         <pad name="2" x="0.825" y="0.0" width="0.35" height="1.25" rotation="0.0" roundness="0.0"/>
-      </footprint>
-      <compatible-nozzle-tip-ids class="java.util.ArrayList">
-         <string>NT1</string>
-      </compatible-nozzle-tip-ids>
-   </package>
-   <package version="1.1" id="R0603">
-      <footprint units="Millimeters" body-width="1.6" body-height="0.8">
-         <pad name="1" x="-0.675" y="0.0" width="0.25" height="0.8" rotation="0.0" roundness="0.0"/>
-         <pad name="2" x="0.675" y="0.0" width="0.25" height="0.8" rotation="0.0" roundness="0.0"/>
-      </footprint>
-      <compatible-nozzle-tip-ids class="java.util.ArrayList">
-         <string>NT1</string>
-      </compatible-nozzle-tip-ids>
-   </package>
-   <package version="1.1" id="R0402">
-      <footprint units="Millimeters" body-width="1.0" body-height="0.5">
-         <pad name="1" x="-0.375" y="0.0" width="0.25" height="0.5" rotation="0.0" roundness="0.0"/>
-         <pad name="2" x="0.375" y="0.0" width="0.25" height="0.5" rotation="0.0" roundness="0.0"/>
-      </footprint>
-      <compatible-nozzle-tip-ids class="java.util.ArrayList">
-         <string>NT1</string>
-      </compatible-nozzle-tip-ids>
-   </package>
-   <package version="1.1" id="R0201">
-      <footprint units="Millimeters" body-width="0.6" body-height="0.3">
-         <pad name="1" x="-0.225" y="0.0" width="0.15" height="0.3" rotation="0.0" roundness="0.0"/>
-         <pad name="2" x="0.225" y="0.0" width="0.15" height="0.3" rotation="0.0" roundness="0.0"/>
-      </footprint>
-      <compatible-nozzle-tip-ids class="java.util.ArrayList">
-         <string>NT1</string>
-      </compatible-nozzle-tip-ids>
-   </package>
    <package version="1.1" id="TQFP32">
       <footprint units="Millimeters" body-width="7.0" body-height="7.0">
          <pad name="1" x="-4.0" y="-2.625" width="0.36" height="1.0" rotation="90.0" roundness="0.0"/>
@@ -85,5 +49,59 @@
       <compatible-nozzle-tip-ids class="java.util.ArrayList">
          <string>TIP1571600888177</string>
       </compatible-nozzle-tip-ids>
+   </package>
+   <package version="1.1" id="C_0603">
+      <footprint units="Millimeters" body-width="1.55" body-height="0.85"/>
+      <compatible-nozzle-tip-ids class="java.util.ArrayList">
+         <string>TIP1571600646776</string>
+      </compatible-nozzle-tip-ids>
+   </package>
+   <package version="1.1" id="SOIJ-8_5.3x5.3mm_Pitch1.27mm">
+      <footprint units="Millimeters" body-width="0.0" body-height="0.0"/>
+      <compatible-nozzle-tip-ids class="java.util.ArrayList"/>
+   </package>
+   <package version="1.1" id="R_0805">
+      <footprint units="Millimeters" body-width="2.0" body-height="1.2"/>
+      <compatible-nozzle-tip-ids class="java.util.ArrayList">
+         <string>TIP1571600646776</string>
+      </compatible-nozzle-tip-ids>
+   </package>
+   <package version="1.1" id="R_0603">
+      <footprint units="Millimeters" body-width="1.55" body-height="0.85"/>
+      <compatible-nozzle-tip-ids class="java.util.ArrayList">
+         <string>TIP1571600646776</string>
+      </compatible-nozzle-tip-ids>
+   </package>
+   <package version="1.1" id="BTT_GOOD_USB_MICRO_SMD">
+      <footprint units="Millimeters" body-width="0.0" body-height="0.0"/>
+      <compatible-nozzle-tip-ids class="java.util.ArrayList">
+         <string>TIP1571600888177</string>
+      </compatible-nozzle-tip-ids>
+   </package>
+   <package version="1.1" id="Si2305">
+      <footprint units="Millimeters" body-width="3.0" body-height="2.8"/>
+      <compatible-nozzle-tip-ids class="java.util.ArrayList">
+         <string>TIP1571600646776</string>
+      </compatible-nozzle-tip-ids>
+   </package>
+   <package version="1.1" id="SPDT_JS102011JCQN">
+      <footprint units="Millimeters" body-width="0.0" body-height="0.0"/>
+      <compatible-nozzle-tip-ids class="java.util.ArrayList"/>
+   </package>
+   <package version="1.1" id="DFN_10_3x3">
+      <footprint units="Millimeters" body-width="0.0" body-height="0.0"/>
+      <compatible-nozzle-tip-ids class="java.util.ArrayList"/>
+   </package>
+   <package version="1.1" id="WS2812B">
+      <footprint units="Millimeters" body-width="5.0" body-height="5.0"/>
+      <compatible-nozzle-tip-ids class="java.util.ArrayList">
+         <string>TIP1571600888177</string>
+      </compatible-nozzle-tip-ids>
+   </package>
+   <package version="1.1" id="HackFid">
+      <footprint units="Millimeters" body-width="0.0" body-height="0.0">
+         <pad name="1" x="0.0" y="0.0" width="1.7" height="1.7" rotation="0.0" roundness="100.0"/>
+      </footprint>
+      <compatible-nozzle-tip-ids class="java.util.ArrayList"/>
    </package>
 </openpnp-packages>
