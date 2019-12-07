@@ -3,6 +3,6 @@ var downLED = machine.getActuatorByName("LED Down");
 
 if (upLED) {
 	upLED.actuate(false);
-	//downLED.actuate(true);
+	downLED.actuate(true);
 }
 //if (downLED) downLED.actuate(false);
