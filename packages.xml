@@ -53,6 +53,7 @@
    <package version="1.1" id="C_0603">
       <footprint units="Millimeters" body-width="1.55" body-height="0.85"/>
       <compatible-nozzle-tip-ids class="java.util.ArrayList">
+         <string>TIP1575760353210</string>
          <string>TIP1571600646776</string>
       </compatible-nozzle-tip-ids>
    </package>
@@ -63,12 +64,14 @@
    <package version="1.1" id="R_0805">
       <footprint units="Millimeters" body-width="2.0" body-height="1.2"/>
       <compatible-nozzle-tip-ids class="java.util.ArrayList">
+         <string>TIP1575760353210</string>
          <string>TIP1571600646776</string>
       </compatible-nozzle-tip-ids>
    </package>
    <package version="1.1" id="R_0603">
       <footprint units="Millimeters" body-width="1.55" body-height="0.85"/>
       <compatible-nozzle-tip-ids class="java.util.ArrayList">
+         <string>TIP1575760353210</string>
          <string>TIP1571600646776</string>
       </compatible-nozzle-tip-ids>
    </package>
@@ -81,7 +84,7 @@
    <package version="1.1" id="Si2305">
       <footprint units="Millimeters" body-width="3.0" body-height="2.8"/>
       <compatible-nozzle-tip-ids class="java.util.ArrayList">
-         <string>TIP1571600646776</string>
+         <string>TIP1571600888177</string>
       </compatible-nozzle-tip-ids>
    </package>
    <package version="1.1" id="SPDT_JS102011JCQN">
@@ -103,5 +106,17 @@
          <pad name="1" x="0.0" y="0.0" width="1.7" height="1.7" rotation="0.0" roundness="100.0"/>
       </footprint>
       <compatible-nozzle-tip-ids class="java.util.ArrayList"/>
+   </package>
+   <package version="1.1" id="SOT-23-0">
+      <footprint units="Millimeters" body-width="2.9" body-height="1.3">
+         <pad name="1" x="-1.0" y="-1.1" width="0.8" height="0.8" rotation="0.0" roundness="0.0"/>
+         <pad name="2" x="1.0" y="-1.1" width="0.8" height="0.8" rotation="0.0" roundness="0.0"/>
+         <pad name="3" x="0.0" y="1.1" width="0.8" height="0.8" rotation="0.0" roundness="0.0"/>
+      </footprint>
+      <compatible-nozzle-tip-ids class="java.util.ArrayList">
+         <string>TIP1571600888177</string>
+         <string>TIP1575760353210</string>
+         <string>TIP1571600646776</string>
+      </compatible-nozzle-tip-ids>
    </package>
 </openpnp-packages>

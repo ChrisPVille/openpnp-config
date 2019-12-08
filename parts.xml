@@ -9,7 +9,7 @@
    <part id="R_0603-470" height-units="Millimeters" height="0.5" package-id="R_0603" speed="1.0"/>
    <part id="R_0603-10K" height-units="Millimeters" height="0.5" package-id="R_0603" speed="1.0"/>
    <part id="BTT_GOOD_USB_MICRO_SMD-USB_OTG" height-units="Millimeters" height="2.65" package-id="BTT_GOOD_USB_MICRO_SMD" speed="1.0"/>
-   <part id="Si2305-LB_Power" height-units="Millimeters" height="1.0" package-id="Si2305" speed="1.0"/>
+   <part id="Si2305-LB_Power" height-units="Millimeters" height="1.0" package-id="SOT-23-0" speed="1.0"/>
    <part id="SPDT_JS102011JCQN-SWITCH_INV" height-units="Millimeters" height="0.0" package-id="SPDT_JS102011JCQN" speed="1.0"/>
    <part id="DFN_10_3x3-MCP73123" height-units="Millimeters" height="0.0" package-id="DFN_10_3x3" speed="1.0"/>
    <part id="WS2812B-WS2812B" height-units="Millimeters" height="1.4" package-id="WS2812B" speed="1.0"/>

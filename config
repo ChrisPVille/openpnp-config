@@ -25,9 +25,9 @@ microseconds_per_step_pulse                  1                # Duration of step
 base_stepping_frequency                      100000           # Base frequency for stepping, higher gives smoother movement
 
 # Cartesian axis speed limits
-x_axis_max_speed                             100000            # mm/min
+x_axis_max_speed                             60000            # mm/min
 y_axis_max_speed                             60000            # mm/min
-z_axis_max_speed                             50000            # mm/min
+z_axis_max_speed                             30000            # mm/min
 
 # Stepper module pins ( ports, and pin numbers, appending "!" to the number will invert a pin )
 alpha_step_pin                               2.0              # Pin for alpha stepper step signal
@@ -35,7 +35,7 @@ alpha_dir_pin                                0.5!             # Pin for alpha st
 alpha_en_pin                                 0.4              # Pin for alpha enable pin
 alpha_current                                1.4              # X stepper motor current
 alpha_acceleration                           5000             # Acceleration in mm/second/second.
-alpha_max_rate                               100000.0          # mm/min
+alpha_max_rate                               60000.0          # mm/min
 
 beta_step_pin                                2.1!o            # Pin for beta stepper step signal
 beta_dir_pin                                 0.11o           # Pin for beta stepper direction
@@ -48,8 +48,8 @@ gamma_step_pin                               2.2              # Pin for gamma st
 gamma_dir_pin                                0.20!            # Pin for gamma stepper direction
 gamma_en_pin                                 0.19             # Pin for gamma enable
 gamma_current                                1.5             # Z stepper motor current
-gamma_acceleration                           10000             # Acceleration in mm/second/second.
-gamma_max_rate                               50000.0          # mm/min
+gamma_acceleration                           2000             # Acceleration in mm/second/second.
+gamma_max_rate                               30000.0          # mm/min
 
 extruder.hotend.enable                       true             # Whether to activate the extruder module at all. All configuration is ignored if false
 extruder.hotend.steps_per_mm                 17.6666           # Steps per mm for extruder stepper
@@ -115,9 +115,9 @@ gamma_homing_direction                       home_to_min      #
 gamma_min                                    -11.0            #
 gamma_max                                    100.0              #
 gamma_max_travel                             50.0              #
-gamma_fast_homing_rate_mm_s                  5.0               # "
-gamma_slow_homing_rate_mm_s                  2.5               # "
-gamma_homing_retract_mm                      1.0               # "
+gamma_fast_homing_rate_mm_s                  10.0               # "
+gamma_slow_homing_rate_mm_s                  4.0               # "
+gamma_homing_retract_mm                      10.0               # "
 
 # optional order in which axis will home, default is they all home at the same time,
 # if this is set it will force each axis to home one at a time in the specified order
@@ -146,6 +146,12 @@ switch.upled.input_on_command                M806
 switch.upled.input_off_command               M807
 switch.upled.output_pin                      2.6
 switch.upled.output_type                     digital
+
+switch.vac.enable                          true
+switch.vac.input_on_command                M808
+switch.vac.input_off_command               M809
+switch.vac.output_pin                      1.30
+switch.vac.output_type                     digital
 
 # Only needed on a smoothieboard
 currentcontrol_module_enable                 true             #
